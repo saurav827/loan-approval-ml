@@ -94,19 +94,25 @@
 
         </form>
 
-        {% if prediction_text %}
-        <div class="mt-4 text-center">
-            {% if "Approved" in prediction_text %}
-                <div class="alert alert-success shadow">
-                    {{ prediction_text }}
-                </div>
-            {% else %}
-                <div class="alert alert-danger shadow">
-                    {{ prediction_text }}
-                </div>
-            {% endif %}
+       {% if prediction_text %}
+<div class="mt-4 text-center">
+    {% if "Approved" in prediction_text %}
+        <div class="alert alert-success shadow">
+            <h4>{{ prediction_text }}</h4>
+            <p>{{ confidence_text }}</p>
+            <p class="text-muted">{{ accuracy_text }}</p>
         </div>
-        {% endif %}
+    {% else %}
+        <div class="alert alert-danger shadow">
+            <h4>{{ prediction_text }}</h4>
+            <p>{{ confidence_text }}</p>
+            <p class="text-muted">{{ accuracy_text }}</p>
+        </div>
+    {% endif %}
+</div>
+{% endif %}
+
+
 
     </div>
 </div>
